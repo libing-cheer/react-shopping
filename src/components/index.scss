@@ -1,0 +1,27 @@
+.docker {
+  display: flex;
+  position: absolute;
+  padding: 0.18rem;
+  box-sizing: border-box;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.49rem;
+  border-top: 0.01rem solid #f1f1f1;
+  &__item {
+    flex: 1;
+    text-align: center;
+    &--active {
+      color: #1fa4f7;
+    }
+  }
+  &__title {
+    font-size: 0.2rem;
+    transform: scale(0.5, 0.5);
+    transform-origin: center top;
+  }
+  a {
+    color: #333333;
+    text-decoration: none;
+  }
+}

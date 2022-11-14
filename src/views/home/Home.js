@@ -1,13 +1,19 @@
 import React from 'react'
 import './index.scss'
+import StaticPart from './StaticPart'
+import Docker from '../../components/Docker'
 
 class Home extends React.Component {
-    constructor(props) {
-        super(props)
-    }
 
     render() {
-        return <div className='wrapper'>Hello React</div>
+        return (
+            <div>
+                <div className='wrapper'>
+                    <StaticPart/>
+                </div>
+                <Docker />
+            </div>
+        )
     }
 }
 
