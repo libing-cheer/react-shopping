@@ -1,6 +1,7 @@
 import React from 'react'
 import './index.scss'
 import StaticPart from './StaticPart'
+import Nearby from './Nearby'
 import Docker from '../../components/Docker'
 
 class Home extends React.Component {
@@ -10,8 +11,9 @@ class Home extends React.Component {
             <div>
                 <div className='wrapper'>
                     <StaticPart/>
+                    <Nearby/>
                 </div>
-                <Docker />
+                <Docker/>
             </div>
         )
     }

@@ -82,3 +82,15 @@
   height: 0.1rem;
   background: #f1f1f1;
 }
+
+.nearby {
+  &__title {
+    margin: 0.16rem 0 0.02rem 0;
+    font-size: 0.18rem;
+    font-weight: normal;
+    color: #333333;
+  }
+  a {
+    text-decoration: none;
+  }
+}
