@@ -2,12 +2,12 @@
 import classnames from 'classnames'
 
 function ShopInfo(props) {
-    console.log(props)
     const {imgUrl, name, sales, expressLimit, expressPrice, slogan} = props.item;
     const {hideBorder} = props
     return (
         <div className='shop'>
             <img className='shop__img' src={imgUrl} alt=''/>
+            {/* 两种动态绑定样式的写法 */}
             {/*<div className={`shop__content ${!hideBorder ? 'shop__content--bordered' : ''}`}>*/}
             <div className={classnames({'shop__content': true, 'shop__content--bordered': !hideBorder})}>
                 <div className='shop__content__title'>{name}</div>

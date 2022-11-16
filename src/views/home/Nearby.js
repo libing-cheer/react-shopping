@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import {BrowserRouter, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {get} from "../../utils/request";
 import ShopInfo from '../../components/ShopInfo'
 
@@ -23,11 +23,9 @@ function Nearby() {
             data.result.map(item => {
                 return (
                     <div key={item.id}>
-                        <BrowserRouter>
-                            <Link to={'/shop/' + item.id}>
-                                <ShopInfo item={item} hideBorder={false}/>
-                            </Link>
-                        </BrowserRouter>
+                        <Link to={'/shop/' + item.id}>
+                            <ShopInfo item={item} hideBorder={false}/>
+                        </Link>
                     </div>
                 )
             })

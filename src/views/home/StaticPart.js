@@ -34,7 +34,10 @@ function StaticPart() {
                         return (
                             <div className="icons__item"
                                  key={item.id}>
-                                <img className="icons__item__img" src={item.imgUrl} alt=""/>
+                                <img v-show={item.imgUrl}
+                                     className="icons__item__img"
+                                     src={item.imgUrl}
+                                     alt=""/>
                                 <p className="icons__item__desc">{item?.title}</p>
                             </div>
                         )

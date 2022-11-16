@@ -1,15 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./style/index.scss";
+import {BrowserRouter as Router, useRoutes} from "react-router-dom";
+import router from './router/index'
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-    <App/>
-);
+const GetRoutes = () => {
+    return useRoutes(router)
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+const SetRoutes = () => {
+    return (
+        <Router>
+            <GetRoutes/>
+        </Router>
+    )
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+    <SetRoutes/>
+)
+/*
+* 如果你想开始测量你的应用程序的性能，传递一个函数
+* 记录结果（例如：reportWebVitals(console.log)）
+* 或发送到分析端点。 了解更多：https://bit.ly/CRA-vitals
+*/
 reportWebVitals();
