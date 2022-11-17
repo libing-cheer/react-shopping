@@ -1,0 +1,87 @@
+.wrapper__cart {
+  overflow-y: scroll;
+  position: absolute;
+  top: 0;
+  bottom: 0.5rem;
+  left: 0;
+  right: 0;
+  background: rgb(248, 248, 248);
+}
+
+.title {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  line-height: 0.44rem;
+  color: #333333;
+  text-align: center;
+  font-size: 0.16rem;
+  background: #ffffff;
+}
+
+.products {
+  margin: 0.16rem 0.18rem 0rem 0.18rem;
+  background: #ffffff;
+
+  &__title {
+    padding: 0.16rem;
+    line-height: 0.22rem;
+    font-size: 0.16rem;
+    color: #333333;
+  }
+
+  &__list {
+    padding: 0rem 0rem;
+    background: rgb(248, 248, 248);
+
+    &__main {
+      margin: .16rem 0;
+      background: #ffffff;
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    padding: 0 0.16rem 0.16rem 0.16rem;
+
+    &__detail {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    &__img {
+      width: 0.46rem;
+      height: 0.46rem;
+      margin-right: 0.16rem;
+    }
+
+    &__title {
+      margin: 0;
+      line-height: 0.2rem;
+      font-size: 0.14rem;
+      color: #333333;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    &__price {
+      display: flex;
+      margin: 0.06rem 0 0 0;
+      line-height: 0.2rem;
+      font-size: 0.14rem;
+      color: #e93b3b;
+
+      &__total {
+        flex: 1;
+        color: #000000;
+        text-align: right;
+      }
+
+      &__yen {
+        font-size: 0.12rem;
+      }
+    }
+  }
+}

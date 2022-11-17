@@ -1,6 +1,6 @@
-function Register() {
-    return <div>Register</div>
+function Shop() {
+    return <div>Shop</div>
 }
 
-export default Register
+export default Shop
 
