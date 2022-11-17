@@ -1,0 +1,66 @@
+.wrapper__order {
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0.5rem;
+  right: 0;
+  background: rgb(248, 248, 248);
+}
+.title {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  line-height: 0.44rem;
+  color: #333333;
+  text-align: center;
+  font-size: 0.16rem;
+  background: #ffffff;
+}
+.orders {
+  .order {
+    padding: 0.16rem;
+    margin: 0.16rem 0.18rem;
+    background: #ffffff;
+    font-size: 0.16rem;
+    &__title {
+      margin-bottom: 0.16rem;
+      font-size: 0.16rem;
+      color: #333333;
+    }
+    &__status {
+      float: right;
+      line-height: 0.22rem;
+      font-size: 0.14rem;
+      color: #999999;
+    }
+    &__content {
+      display: flex;
+      &__imgs {
+        flex: 1;
+        width: 2.08rem;
+      }
+      &__img {
+        width: 0.4rem;
+        height: 0.4rem;
+        margin-right: 0.12rem;
+      }
+      &__info {
+        width: 0.7rem;
+        &__price {
+          margin-bottom: 0.04rem;
+          line-height: 0.2rem;
+          font-size: 0.14rem;
+          color: #e93b3b;
+          text-align: right;
+        }
+        &__count {
+          line-height: 0.14rem;
+          font-size: 0.12rem;
+          color: #333333;
+          text-align: right;
+        }
+      }
+    }
+  }
+}

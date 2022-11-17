@@ -13,7 +13,6 @@ function CartList() {
             }
         }
         getCartList()
-        console.log(data)
     }, [])
     return (
         <div>
