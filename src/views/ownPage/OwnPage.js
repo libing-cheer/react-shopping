@@ -23,12 +23,15 @@ function OwnPage() {
     }, [])
 
     return (
-        <div className='wrappers'>
-            <Header data={data}/>
-            <Favorite data={data}/>
-            <Order data={data}/>
-            <Happy data={data}/>
-            <Benefit data={data}/>
+        <div>
+            <div className='wrappers'>
+                <Header data={data}/>
+                <Favorite/>
+                <Order data={data}/>
+                <Happy data={data}/>
+                <Benefit data={data}/>
+            </div>
+
             <Docker/>
         </div>
     )
