@@ -36,3 +36,31 @@
     }
   }
 }
+.content {
+  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 1.5rem;
+  bottom: .5rem;
+}
+.category {
+  width: .76rem;
+  height: 100%;
+  font-size: .14rem;
+  overflow-y: scroll;
+  background: #f5f5f5;
+  &__item {
+    line-height: 0.4rem;
+    text-align: center;
+    font-size: .14rem;
+    color: #333333;
+    &--active {
+      background: #ffffff;
+    }
+  }
+}
+.products {
+  flex: 1;
+  overflow-y: scroll;
+}
