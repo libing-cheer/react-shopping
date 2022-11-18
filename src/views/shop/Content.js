@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useEffect} from 'react'
 import useMergeState from '../../utils/useMergeState'
 import classnames from 'classnames'
 
@@ -9,12 +9,12 @@ function Content() {
             {name: "全部商品", tab: "all"},
             {name: "秒杀", tab: "seckill"},
             {name: "新鲜水果", tab: "fruit"},
-        ]
+        ],
+        currentTab: 'all'
     })
-    const [currentTab, setCurrentTab] = useState('all')
 
     const handleTabClick = (tab) => {
-        setCurrentTab(tab)
+        setData({ currentTab: tab })
     }
 
     useEffect(() => {}, [])
@@ -25,7 +25,7 @@ function Content() {
                     return <div
                         className={classnames(
                             'category__item',
-                            {'category__item--active': (currentTab === item.tab)}
+                            {'category__item--active': (data.currentTab === item.tab)}
                         )
                         }
                         key={item.tab}
