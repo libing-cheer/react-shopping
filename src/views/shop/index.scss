@@ -1,0 +1,38 @@
+.wrapper__shop {
+  padding: 0 0.18rem;
+  .search__shop {
+    display: flex;
+    margin: 0.14rem 0 0.04rem 0;
+    &__back {
+      width: 0.3rem;
+      line-height: .32rem;
+      font-size: .2rem;
+      color: #b6b6b6;
+    }
+    &__content {
+      display: flex;
+      flex: 1;
+      line-height: .32rem;
+      background: #f5f5f5;
+      border-radius: .16rem;
+      &__icon {
+        width: .44rem;
+        text-align: center;
+        color: #b7b7b7;
+      }
+      &__input {
+        display: block;
+        width: 100%;
+        padding-right: .2rem;
+        border: none;
+        outline: none;
+        background: none;
+        color: #333333;
+        font-size: .14rem;
+        &::placeholder {
+          color: #333333;
+        }
+      }
+    }
+  }
+}

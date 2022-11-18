@@ -25,7 +25,6 @@ function OrderList() {
             }
         }
         getOrderList()
-        console.log(data, 'data')
     }, [])
     return <div>
         <div className='wrapper__order'>
