@@ -63,4 +63,51 @@
 .products {
   flex: 1;
   overflow-y: scroll;
+  margin: 0;
+  &__item {
+    position: relative;
+    display: flex;
+    padding: 0.12rem 0;
+    margin: 0 0.16rem;
+    border-bottom: 0.01rem solid #f1f1f1;
+    &__detail {
+      overflow: hidden;
+    }
+    &__img {
+      width: 0.68rem;
+      height: 0.68rem;
+      margin-right: 0.16rem;
+    }
+    &__title {
+      margin: 0;
+      line-height: 0.2rem;
+      font-size: 0.14rem;
+      color: #333333;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    &__sales {
+      margin: 0.06rem 0;
+      line-height: 0.16rem;
+      font-size: 0.12rem;
+      color: #333333;
+    }
+    &__price {
+      margin: 0;
+      line-height: 0.2rem;
+      font-size: 0.14rem;
+      color: #e93b3b;
+      &__yen {
+        font-size: 0.12rem;
+      }
+      &__origin {
+        margin-left: 0.06rem;
+        line-height: 0.2rem;
+        font-size: 0.12rem;
+        color: #999999;
+        text-decoration: line-through;
+      }
+    }
+  }
 }

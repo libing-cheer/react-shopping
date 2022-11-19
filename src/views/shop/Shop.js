@@ -30,7 +30,7 @@ function Shop() {
             </div>
         </div>
         <ShopInfo item={data} hideBorder={true}/>
-        <Content/>
+        <Content shopName={data.name} />
     </div>
 }
 

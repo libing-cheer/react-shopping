@@ -1,8 +1,12 @@
 import {useEffect} from 'react'
+import {useLocation} from 'react-router-dom'
 import useMergeState from '../../utils/useMergeState'
+import {get} from "../../utils/request";
 import classnames from 'classnames'
 
-function Content() {
+function Content(props) {
+    const {shopName} = props
+    const location = useLocation()
     const [data, setData] = useMergeState({
         list: [],
         categories: [
@@ -10,14 +14,26 @@ function Content() {
             {name: "秒杀", tab: "seckill"},
             {name: "新鲜水果", tab: "fruit"},
         ],
-        currentTab: 'all'
+        currentTab: 'all',
+        shopId: null
     })
 
     const handleTabClick = (tab) => {
-        setData({ currentTab: tab })
+        setData({currentTab: tab})
     }
 
-    useEffect(() => {}, [])
+    useEffect(() => {
+        setData({shopId: location.pathname.split('/')[2]})
+        const getContentData = async () => {
+            const res = await get(`/api/shop/${data.shopId}/products`, {
+                tab: data.currentTab
+            })
+            if (res?.errno && res?.data) {
+                setData({list: res.data.filter(item => item.tab === data.currentTab)})
+            }
+        }
+        getContentData()
+    }, [data.currentTab])
     return <div className='content'>
         <div className='category'>
             {
@@ -37,9 +53,24 @@ function Content() {
             }
         </div>
         <div className='products'>
-            <div className='products__item'>
-                <img className='products__item__img'/>
-            </div>
+            {
+                data.list.map(item => {
+                    return <div className='products__item' key={item._id}>
+                        <img
+                            className='products__item__img'
+                            src={item.imgUrl}
+                        />
+                        <div className="products__item__detail">
+                            <h4 className="products__item__title">{item.name}</h4>
+                            <p className="products__item__sales">月售{item.sales}份</p>
+                            <p className="products__item__price">
+                                <span className="products__item__price__yen">&yen;</span>{item.prices}
+                                <span className="products__item__price__origin">&yen;{item.oldPrices}</span>
+                            </p>
+                        </div>
+                    </div>
+                })
+            }
         </div>
     </div>
 }
