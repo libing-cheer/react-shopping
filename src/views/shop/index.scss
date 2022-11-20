@@ -109,5 +109,24 @@
         text-decoration: line-through;
       }
     }
+    .products__number {
+      position: absolute;
+      right: 0;
+      bottom: .12rem;
+      line-height: .18rem;
+      font-size: .12rem;
+      &__minus {
+        position: relative;
+        top: .02rem;
+        margin-right: .05rem;
+        color: #666666;
+      }
+      &__plus {
+        position: relative;
+        top: .02rem;
+        margin-left: .05rem;
+        color: #0091ff;
+      }
+    }
   }
 }

@@ -6,8 +6,8 @@ import classnames from 'classnames'
 import styled from 'styled-components'
 
 const Products = styled.div`
-  margin: 0.16rem 0.18rem 0rem 0.18rem;
-  background: #ffffff;
+  flex: 1;
+  overflow-y: scroll;
 `
 
 function Content(props) {
@@ -73,6 +73,11 @@ function Content(props) {
                                 <span className="products__item__price__yen">&yen;</span>{item.prices}
                                 <span className="products__item__price__origin">&yen;{item.oldPrices}</span>
                             </p>
+                        </div>
+                        <div className='products__number'>
+                            <span className='products__number__minus iconfont'>&#xe677;</span>
+                            2
+                            <span className='products__number__plus iconfont'>&#xe675;</span>
                         </div>
                     </div>
                 })
