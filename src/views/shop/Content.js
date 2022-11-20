@@ -3,6 +3,12 @@ import {useLocation} from 'react-router-dom'
 import useMergeState from '../../utils/useMergeState'
 import {get} from "../../utils/request";
 import classnames from 'classnames'
+import styled from 'styled-components'
+
+const Products = styled.div`
+  margin: 0.16rem 0.18rem 0rem 0.18rem;
+  background: #ffffff;
+`
 
 function Content(props) {
     const {shopName} = props
@@ -52,7 +58,7 @@ function Content(props) {
                 })
             }
         </div>
-        <div className='products'>
+        <Products>
             {
                 data.list.map(item => {
                     return <div className='products__item' key={item._id}>
@@ -71,7 +77,7 @@ function Content(props) {
                     </div>
                 })
             }
-        </div>
+        </Products>
     </div>
 }
 

@@ -2,6 +2,14 @@ import {useState, useEffect} from 'react'
 import {get} from '../../utils/request'
 import Docker from '../../components/Docker'
 import './index.scss'
+import styled from "styled-components";
+
+const Order = styled.div`
+  padding: 0.16rem;
+  margin: 0.16rem 0.18rem;
+  background: #ffffff;
+  font-size: 0.16rem;
+`
 
 function OrderList() {
     const [data, setData] = useState([])
@@ -31,8 +39,8 @@ function OrderList() {
             <div className="title">我的订单</div>
             {
                 data.map((item, index) => {
-                    return <div className="orders" key={index}>
-                        <div className="order">
+                    return <div className='orders' key={index}>
+                        <Order>
                             <div className='order__title'>
                                 {item.shopName}
                                 <span className="order__status">{
@@ -65,7 +73,7 @@ function OrderList() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </Order>
 
                     </div>
                 })

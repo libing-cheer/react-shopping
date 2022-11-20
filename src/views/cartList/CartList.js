@@ -2,7 +2,11 @@ import {useState, useEffect} from 'react'
 import {get} from '../../utils/request'
 import Docker from '../../components/Docker'
 import './index.scss'
-
+import styled from "styled-components";
+const Products = styled.div`
+  margin: 0.16rem 0.18rem 0rem 0.18rem;
+  background: #ffffff;
+`
 function CartList() {
     const [data, setData] = useState([])
     useEffect(() => {
@@ -18,7 +22,7 @@ function CartList() {
         <div>
             <div className='wrapper__cart'>
                 <div className="title">我的购物车</div>
-                <div className='products'>
+                <Products>
                     <div className='products__list'>
                         {
                             data.map(item => {
@@ -45,7 +49,7 @@ function CartList() {
                             })
                         }
                     </div>
-                </div>
+                </Products>
             </div>
             < Docker/>
         </div>
