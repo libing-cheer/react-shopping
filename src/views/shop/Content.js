@@ -1,9 +1,12 @@
-import {useEffect} from 'react'
+import {useEffect, memo} from 'react'
+import {connect} from "react-redux";
 import {useLocation} from 'react-router-dom'
 import useMergeState from '../../utils/useMergeState'
 import {get} from "../../utils/request";
 import classnames from 'classnames'
 import styled from 'styled-components'
+import {changeCartItemInfo} from './store/actionCreator'
+
 
 const Products = styled.div`
   flex: 1;
@@ -11,8 +14,10 @@ const Products = styled.div`
 `
 
 function Content(props) {
-    const {shopName} = props
+    const {shopName, changeCartItemInfoDispatch} = props
     const location = useLocation()
+    const {cartList} = props.cartList
+
     const [data, setData] = useMergeState({
         list: [],
         categories: [
@@ -27,6 +32,16 @@ function Content(props) {
     const handleTabClick = (tab) => {
         setData({currentTab: tab})
     }
+
+    const changeCartItem = (shopId, productId, item, num, shopName) => {
+        const data = {shopId, productId, productInfo: item, num, shopName}
+        changeCartItemInfoDispatch({...data})
+    }
+
+    const getProductCartCount = (shopId, productId) => {
+        return cartList?.[shopId] && cartList?.[shopId].productList?.[productId]?.count || 0
+    }
+
 
     useEffect(() => {
         setData({shopId: location.pathname.split('/')[2]})
@@ -75,9 +90,19 @@ function Content(props) {
                             </p>
                         </div>
                         <div className='products__number'>
-                            <span className='products__number__minus iconfont'>&#xe677;</span>
-                            2
-                            <span className='products__number__plus iconfont'>&#xe675;</span>
+                            <span
+                                className='products__number__minus iconfont'
+                                onClick={() => {
+                                    changeCartItem(data.shopId, item._id, item, -1, shopName)
+                                }}>
+                                &#xe677;
+                            </span>
+                            {getProductCartCount(data.shopId, item._id)}
+                            <span
+                                className='products__number__plus iconfont'
+                                onClick={() => {
+                                    changeCartItem(data.shopId, item._id, item, 1, shopName)
+                                }}>&#xe675;</span>
                         </div>
                     </div>
                 })
@@ -86,4 +111,18 @@ function Content(props) {
     </div>
 }
 
-export default Content
+const mapStateToProps = (state) => {
+    return {
+        ...state
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changeCartItemInfoDispatch(props) {
+            dispatch(changeCartItemInfo(props))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(memo(Content))

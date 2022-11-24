@@ -1,9 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
-import "./style/index.scss";
 import {BrowserRouter as Router, useRoutes} from "react-router-dom";
 import router from './router/index'
+import "./style/index.scss";
+
+import {Provider} from 'react-redux'
+import store from './store/index'
 
 const GetRoutes = () => {
     return useRoutes(router)
@@ -18,7 +21,10 @@ const SetRoutes = () => {
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-    <SetRoutes/>
+    // 根组件配置：Provider声明式开发，提供给子组件数据管理功能
+    <Provider store={store}>
+        <SetRoutes/>
+    </Provider>
 )
 /*
 * 如果你想开始测量你的应用程序的性能，传递一个函数
