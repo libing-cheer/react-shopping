@@ -18,7 +18,7 @@ function Shop() {
             }
         }
         getItemData()
-    }, [])
+    }, [id])
     const handleBackClick = () => {
         window.history.back()
     }

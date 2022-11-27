@@ -55,10 +55,9 @@ function OrderList() {
                                             const isShowImg = innerIndex <= 3 ? 1 : 0; // todo 展示/隐藏
                                             return <span key={innerIndex} v-show={isShowImg}>
                                                 <img
-
                                                     className="order__content__img"
                                                     src={innerItem.product.imgUrl}
-                                                    alt="image"
+                                                    alt=""
                                                 />
                                             </span>
                                         })

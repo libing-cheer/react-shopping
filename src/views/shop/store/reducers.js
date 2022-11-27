@@ -20,7 +20,7 @@ const defaultState = {
     cartList: getLocalCartList()
 }
 
-export default (state = defaultState, action) => {
+const reducers = (state = defaultState, action) => {
     switch (action.type) {
         case actionTypes.CHANGE_CARTITEM_INFO:
             const {shopId, productId, productInfo, shopName} = action?.data;
@@ -49,3 +49,5 @@ export default (state = defaultState, action) => {
             return {...state};
     }
 }
+
+export default reducers;

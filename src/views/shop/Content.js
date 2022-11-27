@@ -34,17 +34,17 @@ function Content(props) {
     }
 
     const changeCartItem = (shopId, productId, item, num, shopName) => {
-        const data = {shopId, productId, productInfo: item, num, shopName}
-        changeCartItemInfoDispatch({...data})
+        const data = {shopId, productId, productInfo: item, num, shopName};
+        changeCartItemInfoDispatch({...data});
     }
 
     const getProductCartCount = (shopId, productId) => {
-        return cartList?.[shopId] && cartList?.[shopId].productList?.[productId]?.count || 0
-    }
+        return (cartList?.[shopId] && cartList?.[shopId].productList?.[productId]?.count) || 0;
+    };
 
 
     useEffect(() => {
-        setData({shopId: location.pathname.split('/')[2]})
+        setData({shopId: location.pathname.split('/')[2]});
         const getContentData = async () => {
             const res = await get(`/api/shop/${data.shopId}/products`, {
                 tab: data.currentTab
@@ -80,6 +80,7 @@ function Content(props) {
                         <img
                             className='products__item__img'
                             src={item.imgUrl}
+                            alt=''
                         />
                         <div className="products__item__detail">
                             <h4 className="products__item__title">{item.name}</h4>
