@@ -3,6 +3,7 @@ import {useLocation} from 'react-router-dom'
 import {get} from '../../utils/request'
 import ShopInfo from '../../components/ShopInfo'
 import Content from './Content';
+import Cart from './Cart'
 import './index.scss'
 
 function Shop() {
@@ -31,6 +32,7 @@ function Shop() {
         </div>
         <ShopInfo item={data} hideBorder={true}/>
         <Content shopName={data.name} />
+        <Cart />
     </div>
 }
 

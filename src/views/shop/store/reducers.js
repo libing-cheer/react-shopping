@@ -41,12 +41,11 @@ export default (state = defaultState, action) => {
             action.data.num > 0 && (product.check = true);
             shopInfo.productList[productId] = product;
             state.cartList[shopId] = shopInfo;
-            setLocalCartList(state)
-
+            setLocalCartList({...state});
             return {
                 ...state
             }
         default:
-            return state
+            return {...state};
     }
 }

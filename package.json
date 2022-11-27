@@ -18,6 +18,7 @@
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "styled-components": "^5.3.6",
+    "use-async-memo": "^1.2.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
