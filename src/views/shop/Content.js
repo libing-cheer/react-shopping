@@ -14,9 +14,9 @@ const Products = styled.div`
 `
 
 function Content(props) {
-    const {shopName, changeCartItemInfoDispatch} = props
-    const location = useLocation()
-    const {cartList} = props.cartList
+    const {shopName, changeCartItemInfoDispatch} = props;
+    const location = useLocation();
+    const {cartList} = props.cartList;
 
     const [data, setData] = useMergeState({
         list: [],
@@ -33,8 +33,8 @@ function Content(props) {
         setData({currentTab: tab})
     }
 
-    const changeCartItem = (shopId, productId, item, num, shopName) => {
-        const data = {shopId, productId, productInfo: item, num, shopName};
+    const changeCartItem = (shopId, productId, productInfo, num, shopName) => {
+        const data = {shopId, productId, productInfo, num, shopName};
         changeCartItemInfoDispatch({...data});
     }
 
@@ -54,7 +54,7 @@ function Content(props) {
             }
         }
         getContentData()
-    }, [data.currentTab])
+    }, [data.currentTab]);
     return <div className='content'>
         <div className='category'>
             {

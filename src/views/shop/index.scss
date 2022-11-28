@@ -64,6 +64,8 @@
   flex: 1;
   overflow-y: scroll;
   margin: 0;
+  font-size: .12rem;
+  max-height: 2.87rem;
   &__header {
     display: flex;
     line-height: 0.52rem;
@@ -96,12 +98,23 @@
     padding: 0.12rem 0;
     margin: 0 0.16rem;
     border-bottom: 0.01rem solid #f1f1f1;
+    &__checked {
+      line-height: 0.5rem;
+      margin-right: 0.2rem;
+      color: #0091ff;
+      font-size: 0.2rem;
+    }
     &__detail {
       overflow: hidden;
     }
     &__img {
       width: 0.68rem;
       height: 0.68rem;
+      margin-right: 0.16rem;
+    }
+    &__cartImg {
+      width: 0.46rem;
+      height: 0.46rem;
       margin-right: 0.16rem;
     }
     &__title {
@@ -154,9 +167,36 @@
         color: #0091ff;
       }
     }
+    .products__numbers {
+      position: absolute;
+      right: 0;
+      bottom: .26rem;
+      line-height: .18rem;
+      font-size: .12rem;
+      &__minus {
+        position: relative;
+        top: .02rem;
+        margin-right: .05rem;
+        color: #666666;
+      }
+      &__plus {
+        position: relative;
+        top: .02rem;
+        margin-left: .05rem;
+        color: #0091ff;
+      }
+    }
   }
 }
-
+.mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, .5);
+}
 .cart {
   position: absolute;
   left: 0;

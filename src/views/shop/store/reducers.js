@@ -21,6 +21,7 @@ const defaultState = {
 }
 
 const reducers = (state = defaultState, action) => {
+
     switch (action.type) {
         case actionTypes.CHANGE_CARTITEM_INFO:
             const {shopId, productId, productInfo, shopName} = action?.data;
@@ -44,7 +45,33 @@ const reducers = (state = defaultState, action) => {
             setLocalCartList({...state});
             return {
                 ...state
+            };
+        case actionTypes.CHANGE_CART_ITEM_CHECK_INFO:
+            const productItem = state.cartList[action?.data.shopId].productList[action?.data.productId];
+            productItem.check = !productItem.check
+
+            setLocalCartList({...state});
+            return {...state};
+        case 'CLEAN_CART_PRODUCT':
+            state.cartList[action.data.shopId].productList = {};
+            setLocalCartList({...state});
+            return {...state};
+        case 'SET_CART_ITEM_CHECKED':
+            const products = state.cartList[action?.data.shopId].productList;
+            if (products) {
+                for (const i in products) {
+                    const product = products[i];
+                    product.check = true;
+                }
             }
+
+            setLocalCartList({...state});
+
+            return {...state};
+
+        case 'CHANGE_SHOP_NAME':
+        case 'CLEAR_CART_DATA':
+
         default:
             return {...state};
     }
