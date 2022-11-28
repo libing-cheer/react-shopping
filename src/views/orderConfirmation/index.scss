@@ -1,0 +1,130 @@
+.top {
+  position: relative;
+  height: 1.96rem;
+  background-size: 100% 1.59rem;
+  background-image: linear-gradient(0deg, rgba(0, 145, 255, 0) 4%, #0091ff 55%);
+  background-repeat: no-repeat;
+  &__header {
+    position: relative;
+    line-height: 0.24rem;
+    padding-top: 0.2rem;
+    color: #ffffff;
+    text-align: center;
+    font-size: 0.16rem;
+    &__back {
+      position: absolute;
+      left: 0.18rem;
+      font-size: 0.22rem;
+    }
+  }
+  &__receiver {
+    position: absolute;
+    left: 0.18rem;
+    right: 0.18rem;
+    bottom: 0;
+    height: 1.11rem;
+    background: #ffffff;
+    border-radius: 0.04rem;
+    &__title {
+      padding: 0.16rem 0 0.14rem 0.16rem;
+      line-height: 0.22rem;
+      font-size: 0.16rem;
+      color: #333333;
+    }
+    &__address {
+      padding: 0 0.4rem 0 0.16rem;
+      line-height: 0.2rem;
+      font-size: 0.14rem;
+      color: #333333;
+    }
+    &__info {
+      padding: 0.06rem 0 0 0.16rem;
+      &__name {
+        margin-right: 0.06rem;
+        line-height: 0.18rem;
+        color: #666666;
+        font-size: 0.12rem;
+      }
+    }
+    &__icon {
+      position: absolute;
+      right: 0.16rem;
+      top: 0.5rem;
+      color: #666666;
+      font-size: 0.2rem;
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.order {
+  &__price {
+    flex: 1;
+    text-indent: 0.24rem;
+    font-size: 0.14rem;
+    color: #333333;
+  }
+  &__btn {
+    width: 0.98rem;
+    background: #4fb0f9;
+    color: #ffffff;
+    text-align: center;
+    font-size: 0.14rem;
+  }
+}
+
+.products {
+  &__title {
+    padding: 0.16rem;
+    line-height: 0.22rem;
+    font-size: 0.16rem;
+    color: #333333;
+  }
+  &__wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 2.66rem;
+    bottom: 0.6rem;
+    overflow-y: scroll;
+    margin: 0 0.18rem;
+  }
+  &__list {
+    background: #ffffff;
+  }
+  &__item {
+    &__detail {
+      flex: 1;
+      overflow: hidden;
+    }
+    &__imgs {
+      width: 0.46rem;
+      height: 0.46rem;
+      margin-right: 0.16rem;
+    }
+    &__title {
+      margin: 0;
+      line-height: 0.2rem;
+      font-size: 0.14rem;
+      color: #333333;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    &__price {
+      display: flex;
+      margin: 0.06rem 0 0 0;
+      line-height: 0.2rem;
+      font-size: 0.14rem;
+      color: #e93b3b;
+      &__total {
+        flex: 1;
+        color: #000000;
+        text-align: right;
+      }
+      &__yen {
+        font-size: 0.12rem;
+      }
+    }
+  }
+}
