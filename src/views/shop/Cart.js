@@ -7,6 +7,7 @@ import {
     setCartItemCheckedInfo,
     cleanCartProductInfo
 } from "./store/actionCreator";
+import {Link} from "react-router-dom";
 
 function Cart(props) {
     const location = useLocation();
@@ -171,7 +172,9 @@ function Cart(props) {
                     </div>
                     {
                         result.total > 0 && <div className='check__btn'>
-                            去结算
+                            <Link to={'/OrderConfirmation/' + shopId}>
+                                去结算
+                            </Link>
                         </div>
                     }
 

@@ -5,7 +5,7 @@
 import * as actionTypes from './constants'
 
 export const changeCartItemInfo = (data) => ({
-    type: actionTypes.CHANGE_CARTITEM_INFO,
+    type: actionTypes.CHANGE_CART_ITEM_INFO,
     data
 });
 

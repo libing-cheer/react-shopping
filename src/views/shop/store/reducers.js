@@ -23,7 +23,7 @@ const defaultState = {
 const reducers = (state = defaultState, action) => {
 
     switch (action.type) {
-        case actionTypes.CHANGE_CARTITEM_INFO:
+        case actionTypes.CHANGE_CART_ITEM_INFO:
             const {shopId, productId, productInfo, shopName} = action?.data;
             const shopInfo = state.cartList[shopId] || {
                 shopName: "",
