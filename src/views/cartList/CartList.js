@@ -29,7 +29,7 @@ function CartList() {
                                 return <div key={item._id} className="products__list__main">
                                     <div className="products__title">{item.shopName}</div>
                                     <div className="products__item">
-                                        <img className="products__item__img" v-show={item.imgUrl} src={item?.imgUrl}
+                                        <img className="products__item__imgs" v-show={item.imgUrl} src={item?.imgUrl}
                                              alt=""/>
                                         <div className="products__item__detail">
                                             <h4 className="products__item__title">{item?.name}</h4>
