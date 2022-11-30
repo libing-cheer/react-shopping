@@ -23,3 +23,13 @@ export const cleanCartProductInfo = (data) => ({
     type: actionTypes.CLEAN_CART_PRODUCT,
     data
 });
+
+export const clearCartDataInfo = (data) => ({
+    type: actionTypes.CLEAR_CART_DATA_INFO,
+    data
+});
+
+export const changeShopNameInfo = (data) => ({
+    type: actionTypes.CHANGE_SHOP_NAME,
+    data
+});

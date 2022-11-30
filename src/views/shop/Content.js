@@ -5,7 +5,7 @@ import useMergeState from '../../utils/useMergeState'
 import {get} from "../../utils/request";
 import classnames from 'classnames'
 import styled from 'styled-components'
-import {changeCartItemInfo} from './store/actionCreator'
+import {changeCartItemInfo, changeShopNameInfo} from './store/actionCreator'
 
 
 const Products = styled.div`
@@ -14,7 +14,7 @@ const Products = styled.div`
 `
 
 function Content(props) {
-    const {shopName, changeCartItemInfoDispatch} = props;
+    const {shopName, changeCartItemInfoDispatch, changeShopNameInfoDispatch} = props;
     const location = useLocation();
     const {cartList} = props.cartList;
 
@@ -27,16 +27,17 @@ function Content(props) {
         ],
         currentTab: 'all',
         shopId: null
-    })
+    });
 
     const handleTabClick = (tab) => {
         setData({currentTab: tab})
-    }
+    };
 
     const changeCartItem = (shopId, productId, productInfo, num, shopName) => {
         const data = {shopId, productId, productInfo, num, shopName};
         changeCartItemInfoDispatch({...data});
-    }
+        changeShopNameInfoDispatch({shopId, shopName});
+    };
 
     const getProductCartCount = (shopId, productId) => {
         return (cartList?.[shopId] && cartList?.[shopId].productList?.[productId]?.count) || 0;
@@ -52,7 +53,7 @@ function Content(props) {
             if (res?.errno && res?.data) {
                 setData({list: res.data.filter(item => item.tab === data.currentTab)})
             }
-        }
+        };
         getContentData()
     }, [data.currentTab]);
     return <div className='content'>
@@ -120,8 +121,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        changeCartItemInfoDispatch(props) {
-            dispatch(changeCartItemInfo(props))
+        changeCartItemInfoDispatch(state) {
+            dispatch(changeCartItemInfo(state))
+        },
+        changeShopNameInfoDispatch(state) {
+            dispatch(changeShopNameInfo(state));
         }
     }
 }

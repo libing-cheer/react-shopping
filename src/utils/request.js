@@ -18,7 +18,7 @@ export const get = (url, params = {}) => {
 export const post = (url, params = {}) => {
     return new Promise((resolve, reject) => {
         axios
-            .get(url, params)
+            .post(url, params)
             .then((res) => {
                 resolve(res.data)
             })

@@ -7,7 +7,7 @@ const setLocalCartList = (state) => {
     const {cartList} = state
     const cartListString = JSON.stringify(cartList)
     localStorage.cartList = cartListString
-}
+};
 
 const getLocalCartList = () => {
     try {
@@ -15,13 +15,12 @@ const getLocalCartList = () => {
     } catch {
         return {}
     }
-}
+};
 const defaultState = {
     cartList: getLocalCartList()
-}
+};
 
 const reducers = (state = defaultState, action) => {
-
     switch (action.type) {
         case actionTypes.CHANGE_CART_ITEM_INFO:
             const {shopId, productId, productInfo, shopName} = action?.data;
@@ -69,8 +68,20 @@ const reducers = (state = defaultState, action) => {
 
             return {...state};
 
-        case 'CHANGE_SHOP_NAME':
-        case 'CLEAR_CART_DATA':
+        case actionTypes.CHANGE_SHOP_NAME:
+            const shopInfos = state.cartList[action?.data.shopId] || {
+                shopName: '',
+                productList: {}
+            };
+            shopInfos.shopName = action?.data.shopName;
+            setLocalCartList({...state});
+            return {...state};
+
+        case actionTypes.CLEAR_CART_DATA_INFO:
+            state.cartList[action?.data.shopId].productList = {};
+
+            setLocalCartList({...state});
+            return {...state};
 
         default:
             return {...state};
