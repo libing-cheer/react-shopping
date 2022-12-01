@@ -1,0 +1,52 @@
+.wrapper {
+  &__img {
+    display: block;
+    margin: 0 auto 0.4rem auto;
+    width: 0.66rem;
+    height: 0.66rem;
+  }
+  &__input {
+    position: relative;
+    box-sizing: border-box;
+    height: 0.48rem;
+    margin: 0 0.4rem 0.16rem 0.4rem;
+    padding: 0 0.16rem;
+    background: #f9f9f9;
+    border: 0.01rem solid rgba(0, 0, 0, 0);
+    border-radius: 0.06rem;
+    &__content {
+      position: absolute;
+      margin-top: .12rem;
+      width: 100%;
+      border: none;
+      outline: none;
+      line-height: 0.22rem;
+      background: none;
+      font-size: 0.16rem;
+      color: #777777;
+      &::placeholder {
+        color: #777777;
+      }
+    }
+  }
+  &__tips {
+    font-size: .12rem;
+    color: red;
+    text-align: center;
+  }
+  &__login-button {
+    line-height: 0.48rem;
+    margin: 0.32rem 0.4rem 0.16rem 0.4rem;
+    background: #0091ff;
+    box-shadow: 0 0.04rem 0.08rem 0 rgba(0, 245, 255, 0.32);
+    border-radius: 0.04rem;
+    color: #ffffff;
+    font-size: 0.16rem;
+    text-align: center;
+  }
+  &__login-link {
+    font-size: 0.14rem;
+    color: #777777;
+    text-align: center;
+  }
+}

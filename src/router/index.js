@@ -41,21 +41,13 @@ const router = [
     {
         path: '/login',
         element: <Login />,
-        exact: true,
-        beforeEnter: (to, from, next) => {
-            const isLogin = localStorage.isLogin
-            isLogin ? next({name: 'Home'}) : next()
-        }
+        exact: true
     },
     {
         path: '/register',
         element: <Register />,
-        exact: true,
-        beforeEnter: (to, from, next) => {
-            const isLogin = localStorage.isLogin
-            isLogin ? next({name: 'Home'}) : next()
-        }
+        exact: true
     }
-]
+];
 
 export default router

@@ -72,7 +72,6 @@ function Order(props) {
                 isCanceled,
                 addressId: 1
             }
-            console.log(params);
             const result = await post('/api/createOrder', params);
             if (result?.status) {
                 clearCartDataInfoDispatch({shopId});
