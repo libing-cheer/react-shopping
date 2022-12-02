@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import {get} from '../../utils/request'
 import Header from './Header'
 import Favorite from './Favorite'
@@ -32,7 +32,7 @@ function OwnPage() {
                 <Benefit data={data}/>
             </div>
 
-            <Docker/>
+            <Docker pageIndex={3}/>
         </div>
     )
 }

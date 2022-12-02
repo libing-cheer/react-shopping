@@ -1,12 +1,14 @@
-import {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import {get} from '../../utils/request'
 import Docker from '../../components/Docker'
 import './index.scss'
 import styled from "styled-components";
+
 const Products = styled.div`
   margin: 0.16rem 0.18rem 0rem 0.18rem;
   background: #ffffff;
 `
+
 function CartList() {
     const [data, setData] = useState([])
     useEffect(() => {
@@ -51,7 +53,7 @@ function CartList() {
                     </div>
                 </Products>
             </div>
-            < Docker/>
+            < Docker pageIndex={1}/>
         </div>
 
     )

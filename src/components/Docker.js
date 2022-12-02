@@ -1,8 +1,10 @@
-import {useState} from 'react'
+import {useState} from 'react';
 import {Link} from "react-router-dom";
-import './index.scss'
+import classnames from 'classnames';
+import './index.scss';
 
-function Docker() {
+function Docker(props) {
+    const {pageIndex} = props;
     const [data] = useState({
         dockerList: [
             {text: "首页", index: 0, to: {name: "Home"}, path: '/'},
@@ -16,9 +18,14 @@ function Docker() {
             {
                 data.dockerList.map(item => {
                     return (
-                        <div className='docker__item' key={item.index}>
+                        <div
+                            key={item.index}
+                            className='docker__item'
+                        >
                             <Link to={item.path}>
-                                <div className='docker__title'>
+                                <div className={classnames('docker__title',
+                                    {'docker__item--active': item.index === pageIndex})}
+                                >
                                     {item.text}
                                 </div>
                             </Link>

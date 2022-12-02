@@ -18,9 +18,9 @@ function Home() {
                 </div>
             }
             {
-                !isLogin && <Navigate to={'/login'} replace />
+                !isLogin && <Navigate to={'/login'} replace/>
             }
-            <Docker/>
+            <Docker pageIndex={0}/>
         </div>
     )
 }

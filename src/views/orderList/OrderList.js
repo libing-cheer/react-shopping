@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import {get} from '../../utils/request'
 import Docker from '../../components/Docker'
 import './index.scss'
@@ -78,7 +78,7 @@ function OrderList() {
                 })
             }
         </div>
-        <Docker/>
+        <Docker pageIndex={2}/>
 
     </div>
 }
