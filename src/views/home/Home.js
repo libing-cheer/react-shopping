@@ -1,22 +1,28 @@
-import React from 'react'
-import './index.scss'
-import StaticPart from './StaticPart'
+import React from 'react';
+import './index.scss';
+import StaticPart from './StaticPart';
 import Nearby from './Nearby'
-import Docker from '../../components/Docker'
+import Docker from '../../components/Docker';
+import {Navigate} from 'react-router-dom';
 
-class Home extends React.Component {
+function Home() {
+    const isLogin = localStorage.isLogin;
+    return (
 
-    render() {
-        return (
-            <div>
+        <div>
+            {
+                isLogin &&
                 <div className='wrapper'>
                     <StaticPart/>
                     <Nearby/>
                 </div>
-                <Docker/>
-            </div>
-        )
-    }
+            }
+            {
+                !isLogin && <Navigate to={'/login'} replace />
+            }
+            <Docker/>
+        </div>
+    )
 }
 
 export default Home

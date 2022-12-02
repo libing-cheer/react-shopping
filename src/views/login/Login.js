@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import './index.scss';
 import useMergeState from '../../utils/useMergeState';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, Navigate} from 'react-router-dom';
 import {post} from '../../utils/request';
 
 const LoginWrapper = styled.div`
@@ -18,6 +18,7 @@ function Login() {
         password: '',
         showMessage: false
     });
+    const isLogin = localStorage.isLogin;
     const navigate = useNavigate();
     const handleInputChange = (e, type) => {
         if (type === 'userName') setData({userName: e.target.value});
@@ -55,35 +56,44 @@ function Login() {
         navigate('/register');
     };
     return (
-        <LoginWrapper>
-            <img className='wrapper__img'
-                 src={'http://www.dell-lee.com/imgs/vue3/user.png'}
-            />
-            <div className="wrapper__input">
-                <input
-                    value={data.userName}
-                    className="wrapper__input__content"
-                    placeholder="请输入用户名"
-                    onChange={e => handleInputChange(e, 'userName')}
-                    onBlur={handleInputBlur}
-                />
-            </div>
-            <div className="wrapper__input">
-                <input
-                    value={data.password}
-                    type="password"
-                    className="wrapper__input__content"
-                    placeholder="请输入密码"
-                    onChange={e => handleInputChange(e, 'password')}
-                    onBlur={handleInputBlur}
-                />
-            </div>
+        <div>
             {
-                data.showMessage && <div className='wrapper__tips'>请输入用户名和密码</div>
+                !isLogin &&
+                <LoginWrapper>
+                    <img className='wrapper__img'
+                         src={'http://www.dell-lee.com/imgs/vue3/user.png'}
+                    />
+                    <div className="wrapper__input">
+                        <input
+                            value={data.userName}
+                            className="wrapper__input__content"
+                            placeholder="请输入用户名"
+                            onChange={e => handleInputChange(e, 'userName')}
+                            onBlur={handleInputBlur}
+                        />
+                    </div>
+                    <div className="wrapper__input">
+                        <input
+                            value={data.password}
+                            type="password"
+                            className="wrapper__input__content"
+                            placeholder="请输入密码"
+                            onChange={e => handleInputChange(e, 'password')}
+                            onBlur={handleInputBlur}
+                        />
+                    </div>
+                    {
+                        data.showMessage && <div className='wrapper__tips'>请输入用户名和密码</div>
+                    }
+                    <div className="wrapper__login-button" onClick={handleLogin}>登录</div>
+                    <div className="wrapper__login-link" onClick={handleRegisterClick}>立即注册</div>
+                </LoginWrapper>
             }
-            <div className="wrapper__login-button" onClick={handleLogin}>登录</div>
-            <div className="wrapper__login-link" onClick={handleRegisterClick}>立即注册</div>
-        </LoginWrapper>
+            {
+                isLogin && <Navigate to={'/'} replace />
+            }
+
+        </div>
     )
 }
 
